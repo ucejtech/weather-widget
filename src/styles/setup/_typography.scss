@@ -1,0 +1,29 @@
+$font-sizes: 12 14 16 18 20 24 25 28 32 36 40;
+
+@for $size from 12 to 30 {
+  .text-#{$size} {
+    font-size: #{$size}px;
+  }
+  @each $break, $breakpoint in $breakpoints {
+    .text-#{$break}-#{$size} {
+      @include breakpoint($break) {
+        font-size: #{$size}px;
+      }
+    }
+  }
+}
+
+.text-white {
+  color: $color-white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-error {
+  color: $text-color-error;
+}
+.text-info {
+  color: $text-color-info;
+}

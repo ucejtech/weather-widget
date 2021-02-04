@@ -1,0 +1,242 @@
+.animated {
+  /*
+  ** RAIN Animation Class
+  */
+  .rain-drop-1 {
+    @include vendor-prefix(animation, 0.8s ease-in infinite forwards rain-drop);
+  }
+  .rain-drop-2 {
+    @include vendor-prefix(
+      animation,
+      0.9s ease-in 0.75s infinite forwards rain-drop
+    );
+  }
+  .rain-drop-3 {
+    @include vendor-prefix(
+      animation,
+      1.3s ease-in 0.5s infinite forwards rain-drop
+    );
+  }
+  .rain-drop-4 {
+    @include vendor-prefix(
+      animation,
+      1s ease-in 1.5s infinite forwards rain-drop
+    );
+  }
+  .rain-drop-5 {
+    @include vendor-prefix(
+      animation,
+      0.9s ease-in 1.4s infinite forwards rain-drop
+    );
+  }
+
+  /*
+  ** Rotate Animation Class
+  */
+  &.rotate {
+    @include vendor-prefix(animation, 9s linear 0.5s infinite forwards rotate);
+  }
+
+  .rotate {
+    @include vendor-prefix(
+      animation,
+      2s linear 0.5s infinite forwards rotate-partial
+    );
+  }
+
+  /**
+  * Oscillate Animation class
+  */
+  .oscillate {
+    @include vendor-prefix(
+      animation,
+      2s linear infinite forwards oscillate
+    );
+  }
+
+  /**
+  * Snow Flake Animation Class
+  */
+  .snow-flake-1 {
+    @include vendor-prefix(animation, 2s linear infinite forwards snow-animation)
+  }
+  .snow-flake-2 {
+    @include vendor-prefix(animation, 2s linear 1.2s infinite forwards snow-animation)
+  }
+
+  /**
+  * Thunderstorm Animation Class
+  */
+  .thunderstorm {
+    @include vendor-prefix(animation, 1.11s linear 1.2s infinite forwards thunderstorm);
+  }
+}
+
+/*
+** RAIN Animation Keyframes
+*/
+@keyframes rain-drop {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    @include vendor-prefix(transform, translate(-40px, 40px));
+  }
+}
+
+/*
+** Rotate Animation Keyframes
+*/
+@keyframes rotate {
+  0% {
+    @include vendor-prefix(transform, rotate(0deg));
+  }
+
+  100% {
+    @include vendor-prefix(transform, rotate(360deg));
+  }
+}
+
+/*
+** Partial Rotate for half shaped SVGs
+*/
+@keyframes rotate-partial {
+  0% {
+    @include vendor-prefix(transform, rotate(0deg));
+    @include vendor-prefix(transform-origin, 59% 43%);
+  }
+  20% {
+    @include vendor-prefix(transform, rotate(-10deg));
+  }
+  40% {
+    @include vendor-prefix(transform, rotate(-20deg));
+  }
+  60% {
+    @include vendor-prefix(transform, rotate(0deg));
+  }
+  80% {
+    @include vendor-prefix(transform, rotate(20deg));
+  }
+  100% {
+    @include vendor-prefix(transform-origin, 59% 43%);
+    @include vendor-prefix(transform, rotate(0deg));
+  }
+}
+
+/*
+** Oscillate Animation Keyframes
+*/
+@keyframes oscillate {
+  0% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+  50% {
+    @include vendor-prefix(transform, translate(-9px, 0px));
+  }
+  100% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+}
+
+/*
+** Snow Flakes Animation Keyframes
+*/
+@keyframes snow-animation {
+  0% {
+    @include vendor-prefix(transform, translate(0, 0));
+  }
+
+  33% {
+    @include vendor-prefix(transform, translate(-6.2px, 12px));
+  }
+
+  66% {
+    @include vendor-prefix(transform, translate(6.4px, 14px));
+    opacity: 1;
+  }
+
+  100% {
+    @include vendor-prefix(transform, translateX(-1.6px) translateY(6px));
+    opacity: 0;
+  }
+}
+
+/*
+** Thunderstorm Animation Keyframes
+*/
+@keyframes thunderstorm {
+  0% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+
+  2% {
+    @include vendor-prefix(transform, translate(0.3px, 0.0px));
+  }
+
+  4% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+
+  6% {
+    @include vendor-prefix(transform, translate(0.5px, 0.4px));
+  }
+
+  8% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+
+  10% {
+    @include vendor-prefix(transform, translate(0.3px, 0.0px));
+  }
+
+  12% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+
+  14% {
+    @include vendor-prefix(transform, translate(0.3px, 0.0px));
+  }
+
+  16% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+
+  18% {
+    @include vendor-prefix(transform, translate(0.3px, 0.0px));
+  }
+
+  20% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+
+  22% {
+    @include vendor-prefix(transform, translate(1px, 0.0px));
+  }
+
+  24% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+
+  }
+
+  26% {
+    @include vendor-prefix(transform, translate(-1px, 0.0px));
+  }
+
+  40% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+
+  65% {
+    @include vendor-prefix(transform, translate(-1px, 5px));
+  }
+  100% {
+    @include vendor-prefix(transform, translate(0px, 0px));
+  }
+}

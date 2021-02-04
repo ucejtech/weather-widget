@@ -1,0 +1,36 @@
+.d-flex {
+  display: flex;
+}
+.d-grid {
+  display: grid;
+}
+
+/** 
+* generate padding and margin utility classes
+* example: mt-14, pt-14, mt-sm-14 or pt-sm-14
+*/
+@each $prop, $letter in (margin: m, padding: p) {
+  @for $space from 0 to 16 {
+    $size: #{$space * $space-multiplier}px;
+    .#{$letter}x-#{$space} {
+      #{$prop}-left: $size;
+      #{$prop}-right: $size;
+    }
+    .#{$letter}y-#{$space} {
+      #{$prop}-top: $size;
+      #{$prop}-bottom: $size;
+    }
+    @each $direction, $d in $xy-border {
+      .#{$letter}#{$d}-#{$space} {
+        #{$prop}-#{$direction}: #{$size};
+      }
+      @each $break, $breakpoint in $breakpoints {
+        .#{$letter}#{$d}-#{$break}-#{$space} {
+          @include breakpoint($break) {
+            #{$prop}-#{$direction}: #{$size};
+          }
+        }
+      }
+    }
+  }
+}
