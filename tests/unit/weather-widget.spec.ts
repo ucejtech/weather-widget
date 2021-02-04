@@ -66,7 +66,7 @@ describe("WeatherArt", () => {
 
 
 describe("DayWeather", () => {
-  it("renders the props correctly to the component", () => {
+  it("renders the correct day to the component", () => {
     const dayWeatherProps = {
       weather: 'windy-rain',
       day: 'Sunday',
@@ -79,5 +79,22 @@ describe("DayWeather", () => {
     })
 
     expect(wrapper.text()).toMatch(dayWeatherProps.day);
+    expect(wrapper.text()).toMatch(`${dayWeatherProps.minTemp}`);
+  })
+
+  it("renders the correct min and max temperature to the component", () => {
+    const dayWeatherProps = {
+      weather: 'windy-rain',
+      day: 'Sunday',
+      minTemp: 3,
+      maxTemp: 16
+    }
+
+    const wrapper = mount(DayWeather, {
+      propsData: dayWeatherProps
+    })
+
+    expect(wrapper.text()).toMatch(`${dayWeatherProps.minTemp}`);
+    expect(wrapper.text()).toMatch(`${dayWeatherProps.maxTemp}`);
   })
 })
